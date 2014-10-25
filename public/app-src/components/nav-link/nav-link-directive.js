@@ -20,10 +20,8 @@ angular.module('components.navLink').directive('waNavLink', [
             link: function(scope, element, attrs){
                 var active = false;
 
-                function routeChangeListener(event){
-                    console.log($location.path());
-
-                    if(attrs.href === '#' + $location.path()){
+                function routeChangeListener(){
+                    if(attrs.href === '#' + $location.url()){
                         active = true;
                         element.parent().addClass('active');
                     }else if(active){

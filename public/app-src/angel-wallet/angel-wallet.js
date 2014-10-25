@@ -9,12 +9,12 @@ angular.module('angelWallet', ['ngRoute', 'ui.bootstrap', 'components.navigation
                     templateUrl: '/app-src/angel-wallet/logs/logs.html'
                 })
                 .when('/pay', {
-                    redirectTo: '/record/pay'
+                    redirectTo: '/record?type=pay'
                 })
                 .when('/deposit', {
-                    redirectTo: '/record/deposit'
+                    redirectTo: '/record?type=deposit'
                 })
-                .when('/record/:type', {
+                .when('/record', {
                     controller: 'RecordTransactionController',
                     templateUrl: '/app-src/angel-wallet/record-transaction/record-transaction.html',
                     reloadOnSearch: false
