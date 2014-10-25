@@ -21,13 +21,13 @@ angular.module('angelWallet').controller('RecordTransactionController', [
         $scope.save = function save(){
             $scope.transaction.date = Math.round(Date.now()/1000);
 
-            if($location.search('type') === 'pay'){
-                $scope.transaction.amount = '-' + $scope.transaction.amount;
+            if($location.search().type === 'pay'){
+                $scope.transaction.amount = $scope.transaction.amount * -1;
             }
 
             aWallet.saveTransaction($scope.transaction);
 
-            $location.path('/');
+            $location.url('/');
         };
 
         /**

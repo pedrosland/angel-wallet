@@ -25,7 +25,7 @@ angular.module('angelWallet').factory('aWallet', [
                 },
                 {
                     description: 'Dinner',
-                    amount: '-15.80',
+                    amount: '-15.60',
                     date: Date.now()/1000
                 }
             ]
@@ -73,7 +73,7 @@ angular.module('angelWallet').factory('aWallet', [
              */
             getBalance: function getBalance(){
                 return $sessionStorage.transactions.reduce(function(accum, transaction){
-                    return accum + parseInt(transaction.amount);
+                    return accum + parseFloat(transaction.amount);
                 }, 0);
             }
         };
