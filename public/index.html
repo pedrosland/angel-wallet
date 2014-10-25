@@ -18,7 +18,7 @@
 </head>
 <body ng-app="angelWallet">
 
-<nav class="navbar navbar-default  navbar-static-top" role="navigation" ng-controller="NavigationController">
+<nav class="navbar navbar-default navbar-static-top" role="navigation" ng-controller="NavigationController">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -28,6 +28,8 @@
             </button>
             <a class="navbar-brand" href="#">Angel Wallet</a>
         </div>
+
+        <p class="navbar-text">Balance <span class="fa" ng-class="getCurrencyClass()"></span>{{ balance.amount | currency }}</p>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" collapse="isCollapsed">
