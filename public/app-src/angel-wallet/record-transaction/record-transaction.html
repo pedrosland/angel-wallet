@@ -13,7 +13,11 @@
     </div>
     <div class="form-group" ng-class="{'has-error': form.amount.$invalid && form.amount.$dirty}">
         <label for="formAmount">Amount</label>
-        <input type="number" name="amount" class="form-control" id="formAmount" ng-model="transaction.amount" placeholder="1.50" min="0.01" required />
+
+        <div class="input-group">
+            <span class="input-group-addon">{{ currency | currencyCodeToSymbol }}</span>
+            <input type="number" name="amount" class="form-control" id="formAmount" ng-model="transaction.amount" placeholder="1.50" min="0.01" required />
+        </div>
 
         <div ng-if="form.amount.$invalid && form.amount.$dirty">
             <p class="control-label" ng-if="form.amount.$error.required || form.amount.$error.min">Please enter an amount.</p>
