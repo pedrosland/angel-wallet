@@ -1,19 +1,19 @@
 <h1>Logs</h1>
 
 <ul class="list-group">
-    <li class="list-group-item clearfix" ng-repeat="log in logs">
+    <li class="list-group-item clearfix" ng-repeat="log in logs | orderBy : '-date'">
         <div class="pull-right log-amount">{{ log.amount | currency : (currency | currencyCodeToSymbol) }}</div>
         <div class="list-group-item-heading">{{ log.description }}</div>
-        <div class="pull-left list-group-item-text text-muted">{{ log.date | date }}</div>
+        <div class="pull-left list-group-item-text text-muted">{{ log.date*1000 | date : 'MMM d, y h:mm a' }}</div>
     </li>
 </ul>
 
 <div>
     <label>Currency</label>
 
-    <ul class="nav nav-pills nav-justified">
-        <li ng-class="{active: currency == 'GBP'}"><a title="GBP" ng-click="setCurrency('GBP')"><span class="fa fa-gbp"></span></a></li>
-        <li ng-class="{active: currency == 'EUR'}"><a title="EUR" ng-click="setCurrency('EUR')"><span class="fa fa-euro"></span></a></li>
-        <li ng-class="{active: currency == 'USD'}"><a title="USD" ng-click="setCurrency('USD')"><span class="fa fa-usd"></span></a></li>
+    <ul class="nav nav-pills nav-justified currency-selector">
+        <li ng-class="{active: currency == 'GBP'}"><a title="GBP" ng-click="setCurrency('GBP')">{{ 'GBP' | currencyCodeToSymbol }}</a></li>
+        <li ng-class="{active: currency == 'EUR'}"><a title="EUR" ng-click="setCurrency('EUR')">{{ 'EUR' | currencyCodeToSymbol }}</a></li>
+        <li ng-class="{active: currency == 'USD'}"><a title="USD" ng-click="setCurrency('USD')">{{ 'USD' | currencyCodeToSymbol }}</a></li>
     </ul>
 </div>

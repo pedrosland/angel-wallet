@@ -6,10 +6,13 @@
  *
  * @description
  * Service to get/set the user's currency preference.
+ *
+ * Note: Perhaps this could become a preference service instead of currency service.
  */
 angular.module('components.currency').factory('aWCurrency', [
     '$rootScope',
-    function($rootScope){
+    '$sessionStorage',
+    function($rootScope, $sessionStorage){
         // Set since we don't yet have a persistence layer
         $rootScope.currency = 'GBP';
 
@@ -25,6 +28,8 @@ angular.module('components.currency').factory('aWCurrency', [
             setCurrency: function setCurrency(currency){
                 // Using $rootScope as it will be included throughout the entire app.
                 $rootScope.currency = currency;
+
+                $sessionStorage.currency = currency;
             },
             /**
              * @ngdoc method

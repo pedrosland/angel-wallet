@@ -1,7 +1,8 @@
 angular.module('angelWallet').controller('RecordTransactionController', [
     '$scope',
     '$location',
-    function($scope, $location){
+    'aWallet',
+    function($scope, $location, aWallet){
 
         /**
          * @ngdoc property
@@ -18,13 +19,13 @@ angular.module('angelWallet').controller('RecordTransactionController', [
          * Saves transaction and returns to transaction log
          */
         $scope.save = function save(){
-            $scope.transaction.date = Date.now();
+            $scope.transaction.date = Math.round(Date.now()/1000);
 
             if($location.search('type') === 'pay'){
                 $scope.transaction.amount = '-' + $scope.transaction.amount;
             }
 
-            console.log($scope.transaction);
+            aWallet.saveTransaction($scope.transaction);
 
             $location.path('/');
         };
@@ -37,7 +38,7 @@ angular.module('angelWallet').controller('RecordTransactionController', [
          * Return to transaction log
          */
         $scope.cancel = function cancel(){
-            $location.path('/');
+            $location.url('/');
         };
     }
 ]);
