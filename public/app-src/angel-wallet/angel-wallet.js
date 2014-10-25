@@ -9,14 +9,15 @@ angular.module('angelWallet', ['ngRoute', 'ui.bootstrap', 'components.navigation
                     templateUrl: '/app-src/angel-wallet/logs/logs.html'
                 })
                 .when('/pay', {
-                    controller: 'LogsController',
-                    // This should be converted to JS and injected in
-                    templateUrl: '/app-src/angel-wallet/logs/logs.html'
+                    redirectTo: '/record/pay'
                 })
                 .when('/deposit', {
-                    controller: 'LogsController',
-                    // This should be converted to JS and injected in
-                    templateUrl: '/app-src/angel-wallet/logs/logs.html'
+                    redirectTo: '/record/deposit'
+                })
+                .when('/record/:type', {
+                    controller: 'RecordTransactionController',
+                    templateUrl: '/app-src/angel-wallet/record-transaction/record-transaction.html',
+                    reloadOnSearch: false
                 })
                 .otherwise('/');
         }
