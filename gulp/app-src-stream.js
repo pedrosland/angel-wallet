@@ -71,8 +71,6 @@ AppJsSrcStream.prototype.initWalker = function(){
 };
 
 AppJsSrcStream.prototype._read = function(){
-    console.log('_read', this.readNext !== undefined);
-
     if(!this.walker){
         this.initWalker();
     }else{
