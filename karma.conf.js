@@ -20,6 +20,7 @@ module.exports = function(config) {
       'public/vendor/angular-*/angular-route.js',
       'public/vendor/angular-*/angular-mocks.js',
       'public/vendor/ui-bootstrap/ui-bootstrap-tpls-0.11.2.js',
+      'public/vendor/ngStorage/ngStorage.js',
 
       // Sources
       'public/app/**/*.js',
