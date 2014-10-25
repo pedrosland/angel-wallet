@@ -1,0 +1,9 @@
+<h1>Logs</h1>
+
+<ul class="list-group">
+    <li class="list-group-item clearfix" ng-repeat="log in logs">
+        <div class="pull-right log-amount">{{ log.amount }}</div>
+        <div class="list-group-item-heading">{{ log.description }}</div>
+        <div class="pull-left list-group-item-text text-muted">{{ log.date | date }}</div>
+    </li>
+</ul>
