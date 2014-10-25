@@ -1,8 +1,16 @@
 angular.module('angelWallet').controller('RecordTransactionController', [
     '$scope',
+    '$rootScope',
     '$location',
     'aWallet',
-    function($scope, $location, aWallet){
+    function($scope, $rootScope, $location, aWallet){
+
+        /**
+         * @ngdoc property
+         * @name depositType
+         * @type {string}
+         */
+        $scope.depositType = $location.search().type;
 
         /**
          * @ngdoc property
@@ -21,7 +29,7 @@ angular.module('angelWallet').controller('RecordTransactionController', [
         $scope.save = function save(){
             $scope.transaction.date = Math.round(Date.now()/1000);
 
-            if($location.search().type === 'pay'){
+            if($scope.depositType === 'pay'){
                 $scope.transaction.amount = $scope.transaction.amount * -1;
             }
 
@@ -40,5 +48,13 @@ angular.module('angelWallet').controller('RecordTransactionController', [
         $scope.cancel = function cancel(){
             $location.url('/');
         };
+
+        var unbind = $rootScope.$on('$routeUpdate', function(){
+            $scope.depositType = $location.search().type;
+        });
+
+        $scope.$on('$destroy', function(){
+            unbind();
+        });
     }
 ]);
