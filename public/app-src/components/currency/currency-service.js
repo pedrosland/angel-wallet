@@ -36,6 +36,6 @@ angular.module('components.currency').factory('aWCurrency', [
             getCurrency: function getCurrency(){
                 return $rootScope.currency;
             }
-        }
+        };
     }
 ]);

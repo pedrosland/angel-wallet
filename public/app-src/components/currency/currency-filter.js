@@ -3,6 +3,6 @@ angular.module('components.currency').filter('currencyCodeToSymbol', [
     function(currencySymbolMapping) {
         return function(code) {
             return currencySymbolMapping[code];
-        }
+        };
     }
 ]);

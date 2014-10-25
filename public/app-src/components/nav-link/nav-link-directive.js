@@ -35,6 +35,6 @@ angular.module('components.navLink').directive('waNavLink', [
                     unbind();
                 });
             }
-        }
+        };
     }
 ]);

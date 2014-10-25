@@ -19,6 +19,7 @@ angular.module('components.navigation').controller('NavigationController', [
         /**
          * @ngdoc property
          * @name isCollapsed
+         * @type {boolean}
          *
          * @description
          * Set to `true` if the menu is collapsed
@@ -46,6 +47,6 @@ angular.module('components.navigation').controller('NavigationController', [
          */
         $scope.getCurrencyClass = function getCurrencyClass(){
             return 'fa-' + aWCurrency.getCurrency().toLowerCase();
-        }
+        };
     }
 ]);
