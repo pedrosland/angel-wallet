@@ -35,6 +35,10 @@ angular.module('angelWallet').directive('aWBalanceCheck', [
                     // Invalid
                     return false;
                 };
+
+                scope.$watch('depositType', function(newValue, oldValue){
+                    ctrl.$validate();
+                });
             }
         };
     }]);
