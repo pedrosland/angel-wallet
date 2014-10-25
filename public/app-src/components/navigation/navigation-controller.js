@@ -2,7 +2,9 @@
  * @ngdoc controller
  * @name components.navigation:NavigationController
  *
+ * @requires $sessionStorage
  * @requires aWCurrency
+ * @requires aWallet
  *
  * @description
  * Attach to a link (<a>) and it will update parent element with "active" class
@@ -14,9 +16,11 @@ angular.module('components.navigation').controller('NavigationController', [
     '$location',
     '$window',
     '$timeout',
+    '$rootScope',
     '$sessionStorage',
     'aWCurrency',
-    function($scope, $location, $window, $timeout, $sessionStorage, aWCurrency){
+    'aWallet',
+    function($scope, $location, $window, $timeout, $rootScope, $sessionStorage, aWCurrency, aWallet){
 
         /**
          * @ngdoc property
@@ -27,6 +31,16 @@ angular.module('components.navigation').controller('NavigationController', [
          * Set to `true` if the menu is collapsed
          */
         $scope.isCollapsed = true;
+
+        /**
+         * @ngdoc property
+         * @name balance
+         * @type {number}
+         *
+         * @description
+         * The balance in the user's wallet
+         */
+        $scope.balance = aWallet.getBalance();
 
         /**
          * @ngdoc method
@@ -55,5 +69,9 @@ angular.module('components.navigation').controller('NavigationController', [
         $scope.getCurrencyClass = function getCurrencyClass(){
             return 'fa-' + aWCurrency.getCurrency().toLowerCase();
         };
+
+        $rootScope.$on('transaction.add', function(){
+            $scope.balance = aWallet.getBalance();
+        });
     }
 ]);

@@ -30,7 +30,7 @@
             <a class="navbar-brand" href="#/">Angel Wallet</a>
         </div>
 
-        <p class="navbar-text">Balance <span class="fa" ng-class="getCurrencyClass()"></span>{{ balance.amount | currency }}</p>
+        <p class="navbar-text">Balance <strong><span class="fa" ng-class="getCurrencyClass()"></span>{{ balance | currency : '' }}</strong></p>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" collapse="isCollapsed">

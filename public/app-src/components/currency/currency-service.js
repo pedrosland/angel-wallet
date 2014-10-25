@@ -3,6 +3,7 @@
  * @name aWCurrency
  *
  * @requires $rootScope
+ * @requires $sessionStorage
  *
  * @description
  * Service to get/set the user's currency preference.
