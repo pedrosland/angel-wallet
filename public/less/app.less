@@ -1,6 +1,19 @@
 @grey-light: #999;
 @grey-dark: #333;
 
+// Library overrides
+
 @import "ui-bootstrap";
+
+.header {
+  h1 {
+    display: inline-block;
+  }
+  .nav {
+    margin-top: (36px + 20px - 14px); // h1 font-size + h1 margin-top - font-size
+  }
+}
+
+// Page styles
 
 @import "logs";
