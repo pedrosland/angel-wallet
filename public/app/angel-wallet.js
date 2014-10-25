@@ -1,0 +1,8 @@
+angular.module('angelWallet', ['ui.bootstrap']);
+angular.module('angelWallet').controller('WalletController', [
+    '$scope',
+    function($scope){
+
+    }
+]);
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFuZ2VsLXdhbGxldC9hbmdlbC13YWxsZXQuanMiLCJhbmdlbC13YWxsZXQvd2FsbGV0LWNvbnRyb2xsZXIuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7QUNBQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0EiLCJmaWxlIjoiYW5nZWwtd2FsbGV0LmpzIiwic291cmNlc0NvbnRlbnQiOlsiYW5ndWxhci5tb2R1bGUoJ2FuZ2VsV2FsbGV0JywgWyd1aS5ib290c3RyYXAnXSk7IiwiYW5ndWxhci5tb2R1bGUoJ2FuZ2VsV2FsbGV0JykuY29udHJvbGxlcignV2FsbGV0Q29udHJvbGxlcicsIFtcbiAgICAnJHNjb3BlJyxcbiAgICBmdW5jdGlvbigkc2NvcGUpe1xuXG4gICAgfVxuXSk7Il0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9
