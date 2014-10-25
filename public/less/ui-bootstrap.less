@@ -1,2 +1,35 @@
 // Official css from Angular UI Bootstrap
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+// UNOFFICIAL CSS:
+
+// Nav Collapse
+// --------
+
+.navbar-collapse{
+  // This hides the content of the element when reduced.
+  // Used for Navbar, not sure if it is useful elsewhere.
+  height: 0px;
+  overflow-y: hidden;
+}
+
+@media (min-width: 768px) {
+  .navbar-collapse {
+    display: block !important;
+    height: auto !important;
+  }
+}
+
+.navbar-toggle{
+  color: @grey-dark;
+
+  padding: 3px 0 2px 0;
+  border: 0;
+
+  .navbar-default &, .navbar-default &:focus, .navbar-default &:hover {
+    background: transparent;
+  }
+}
+.navbar-toggle.collapsed{
+  color: @grey-light
+}

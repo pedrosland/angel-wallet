@@ -1,1 +1,1 @@
-angular.module('angelWallet', ['ui.bootstrap']);
+angular.module('angelWallet', ['ngRoute', 'ui.bootstrap', 'components.navigation']);
