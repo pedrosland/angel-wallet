@@ -13,8 +13,11 @@ angular.module('components.currency').factory('aWCurrency', [
     '$rootScope',
     '$sessionStorage',
     function($rootScope, $sessionStorage){
-        // Set since we don't yet have a persistence layer
-        $rootScope.currency = 'GBP';
+        $sessionStorage.$default({
+            currency: 'GBP'
+        });
+
+        $rootScope.currency = $sessionStorage.currency;
 
         return {
             /**
