@@ -1,4 +1,4 @@
-angular.module('angelWallet', ['ngRoute', 'ui.bootstrap', 'components.navigation', 'components.navLink'])
+angular.module('angelWallet', ['ngRoute', 'ui.bootstrap', 'components.navigation', 'components.navLink', 'components.currency'])
     .config([
         '$routeProvider',
         function($routeProvider){

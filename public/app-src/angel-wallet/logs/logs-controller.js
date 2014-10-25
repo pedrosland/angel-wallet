@@ -1,6 +1,9 @@
 angular.module('angelWallet').controller('LogsController', [
     '$scope',
-    function($scope){
+    'aWCurrency',
+    function($scope, aWCurrency){
+        $scope.setCurrency = aWCurrency.setCurrency;
+
         $scope.logs = [
             {
                 description: 'Lunch',
@@ -12,6 +15,6 @@ angular.module('angelWallet').controller('LogsController', [
                 amount: '15.80',
                 date: Date.now()
             }
-        ]
+        ];
     }
 ]);
