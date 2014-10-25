@@ -12,9 +12,11 @@
 angular.module('components.navigation').controller('NavigationController', [
     '$scope',
     '$location',
-    '$localStorage',
+    '$window',
+    '$timeout',
+    '$sessionStorage',
     'aWCurrency',
-    function($scope, $location, $localStorage, aWCurrency){
+    function($scope, $location, $window, $timeout, $sessionStorage, aWCurrency){
 
         /**
          * @ngdoc property
@@ -34,8 +36,13 @@ angular.module('components.navigation').controller('NavigationController', [
          * Reset the data in storage and refresh the page
          */
         $scope.reset = function reset(){
-            $localStorage.$reset();
-            $location.href('/');
+            $sessionStorage.$reset();
+
+            // ngStorage doesn't reset immediately so wait until it does (a timeout of 100ms)
+            $timeout(function() {
+                $window.location.href = '#';
+                $window.location.reload();
+            }, 150);
         };
 
         /**
